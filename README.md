@@ -5,8 +5,7 @@
 
 🔗 **[Ver la app en vivo](https://itam-juanprieto.streamlit.app)**
 
-![Resumen ejecutivo](img/streamlit_resumen.png)
-<!-- Guarda capturas en la carpeta img/ con estos nombres, o cambia las rutas. -->
+[![Resumen ejecutivo](img/streamlit_resumen.png)](https://itam-juanprieto.streamlit.app)
 
 ---
 
@@ -65,4 +64,4 @@ streamlit run app.py
 ---
 
 *Datos 100 % ficticios generados para este proyecto. Fecha de corte: 31/10/2026.*
-**Autor:** Ing. Juan Prieto · [LinkedIn](https://www.linkedin.com/in/juan-manuel-prieto-ba92a2248/) · [Portfolio](https://github.com/Juanmpr)
+**Autor:** Ing. Juan Prieto · [LinkedIn](https://www.linkedin.com/in/juan-manuel-prieto-ba92a2248/) · [Portfolio](https://juanmpr.github.io/MyPortfolio/)

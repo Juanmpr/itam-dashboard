@@ -65,4 +65,4 @@ streamlit run app.py
 ---
 
 *Datos 100 % ficticios generados para este proyecto. Fecha de corte: 31/10/2026.*
-**Autor:** Ing. Juan Prieto · [LinkedIn](#) · [Portfolio](#)
+**Autor:** Ing. Juan Prieto · [LinkedIn](https://www.linkedin.com/in/juan-manuel-prieto-ba92a2248/) · [Portfolio](https://github.com/Juanmpr)

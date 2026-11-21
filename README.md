@@ -63,5 +63,14 @@ streamlit run app.py
 
 ---
 
+## 🚀 ¿Quieres conocer más de mis proyectos?
+
+Te invito a visitar mi portafolio, donde encontrarás otros casos de análisis de datos, dashboards y automatización.
+
+[![Ver mi portafolio](https://img.shields.io/badge/Ver%20mi%20portafolio-0EA5E9?style=for-the-badge&logo=githubpages&logoColor=white)](https://juanmpr.github.io/MyPortfolio/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/juan-manuel-prieto-ba92a2248/)
+
+---
+
 *Datos 100 % ficticios generados para este proyecto. Fecha de corte: 31/10/2026.*
-**Autor:** Ing. Juan Prieto · [LinkedIn](https://www.linkedin.com/in/juan-manuel-prieto-ba92a2248/) · [Portfolio](https://juanmpr.github.io/MyPortfolio/)
+**Autor:** Ing. Juan Prieto

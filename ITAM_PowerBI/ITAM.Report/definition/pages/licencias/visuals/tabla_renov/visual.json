@@ -1,0 +1,119 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "tabla_renov",
+    "position":  {
+                     "x":  875,
+                     "y":  440,
+                     "z":  1810,
+                     "height":  270,
+                     "width":  390,
+                     "tabOrder":  1810
+                 },
+    "visual":  {
+                   "visualType":  "tableEx",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Values":  {
+                                                                   "projections":  [
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Column":  {
+                                                                                                                        "Expression":  {
+                                                                                                                                           "SourceRef":  {
+                                                                                                                                                             "Entity":  "Licencias"
+                                                                                                                                                         }
+                                                                                                                                       },
+                                                                                                                        "Property":  "Software"
+                                                                                                                    }
+                                                                                                     },
+                                                                                           "queryRef":  "Licencias.Software",
+                                                                                           "nativeQueryRef":  "Software"
+                                                                                       },
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Column":  {
+                                                                                                                        "Expression":  {
+                                                                                                                                           "SourceRef":  {
+                                                                                                                                                             "Entity":  "Licencias"
+                                                                                                                                                         }
+                                                                                                                                       },
+                                                                                                                        "Property":  "FechaRenovacion"
+                                                                                                                    }
+                                                                                                     },
+                                                                                           "queryRef":  "Licencias.FechaRenovacion",
+                                                                                           "nativeQueryRef":  "FechaRenovacion"
+                                                                                       },
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Measure":  {
+                                                                                                                         "Expression":  {
+                                                                                                                                            "SourceRef":  {
+                                                                                                                                                              "Entity":  "_Medidas"
+                                                                                                                                                          }
+                                                                                                                                        },
+                                                                                                                         "Property":  "% Uso Real Licencias"
+                                                                                                                     }
+                                                                                                     },
+                                                                                           "queryRef":  "_Medidas.% Uso Real Licencias",
+                                                                                           "nativeQueryRef":  "% Uso Real Licencias"
+                                                                                       },
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Measure":  {
+                                                                                                                         "Expression":  {
+                                                                                                                                            "SourceRef":  {
+                                                                                                                                                              "Entity":  "_Medidas"
+                                                                                                                                                          }
+                                                                                                                                        },
+                                                                                                                         "Property":  "Ahorro Potencial Licencias"
+                                                                                                                     }
+                                                                                                     },
+                                                                                           "queryRef":  "_Medidas.Ahorro Potencial Licencias",
+                                                                                           "nativeQueryRef":  "Ahorro Potencial Licencias"
+                                                                                       }
+                                                                                   ]
+                                                               }
+                                                },
+                                 "sortDefinition":  {
+                                                        "sort":  [
+                                                                     {
+                                                                         "field":  {
+                                                                                       "Measure":  {
+                                                                                                       "Expression":  {
+                                                                                                                          "SourceRef":  {
+                                                                                                                                            "Entity":  "_Medidas"
+                                                                                                                                        }
+                                                                                                                      },
+                                                                                                       "Property":  "Ahorro Potencial Licencias"
+                                                                                                   }
+                                                                                   },
+                                                                         "direction":  "Descending"
+                                                                     }
+                                                                 ]
+                                                    }
+                             },
+                   "visualContainerObjects":  {
+                                                  "title":  [
+                                                                {
+                                                                    "properties":  {
+                                                                                       "show":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "true"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                },
+                                                                                       "text":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "\u0027Ahorro por software y renovación\u0027"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                }
+                                                                                   }
+                                                                }
+                                                            ]
+                                              },
+                   "drillFilterOtherVisuals":  true
+               }
+}

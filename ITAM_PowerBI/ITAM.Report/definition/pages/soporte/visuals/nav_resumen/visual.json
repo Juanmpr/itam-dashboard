@@ -1,0 +1,154 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "nav_resumen",
+    "position":  {
+                     "x":  10,
+                     "y":  100,
+                     "z":  1450,
+                     "height":  40,
+                     "width":  130,
+                     "tabOrder":  1450
+                 },
+    "visual":  {
+                   "visualType":  "actionButton",
+                   "objects":  {
+                                   "icon":  [
+                                                {
+                                                    "selector":  {
+                                                                     "id":  "default"
+                                                                 },
+                                                    "properties":  {
+                                                                       "shapeType":  {
+                                                                                         "expr":  {
+                                                                                                      "Literal":  {
+                                                                                                                      "Value":  "\u0027blank\u0027"
+                                                                                                                  }
+                                                                                                  }
+                                                                                     }
+                                                                   }
+                                                }
+                                            ],
+                                   "text":  [
+                                                {
+                                                    "selector":  {
+                                                                     "id":  "default"
+                                                                 },
+                                                    "properties":  {
+                                                                       "show":  {
+                                                                                    "expr":  {
+                                                                                                 "Literal":  {
+                                                                                                                 "Value":  "true"
+                                                                                                             }
+                                                                                             }
+                                                                                },
+                                                                       "text":  {
+                                                                                    "expr":  {
+                                                                                                 "Literal":  {
+                                                                                                                 "Value":  "\u0027Resumen ejecutivo\u0027"
+                                                                                                             }
+                                                                                             }
+                                                                                },
+                                                                       "fontColor":  {
+                                                                                         "solid":  {
+                                                                                                       "color":  {
+                                                                                                                     "expr":  {
+                                                                                                                                  "Literal":  {
+                                                                                                                                                  "Value":  "\u0027#FFFFFF\u0027"
+                                                                                                                                              }
+                                                                                                                              }
+                                                                                                                 }
+                                                                                                   }
+                                                                                     },
+                                                                       "fontSize":  {
+                                                                                        "expr":  {
+                                                                                                     "Literal":  {
+                                                                                                                     "Value":  "11D"
+                                                                                                                 }
+                                                                                                 }
+                                                                                    }
+                                                                   }
+                                                }
+                                            ],
+                                   "fill":  [
+                                                {
+                                                    "selector":  {
+                                                                     "id":  "default"
+                                                                 },
+                                                    "properties":  {
+                                                                       "show":  {
+                                                                                    "expr":  {
+                                                                                                 "Literal":  {
+                                                                                                                 "Value":  "true"
+                                                                                                             }
+                                                                                             }
+                                                                                },
+                                                                       "fillColor":  {
+                                                                                         "solid":  {
+                                                                                                       "color":  {
+                                                                                                                     "expr":  {
+                                                                                                                                  "Literal":  {
+                                                                                                                                                  "Value":  "\u0027#1E293B\u0027"
+                                                                                                                                              }
+                                                                                                                              }
+                                                                                                                 }
+                                                                                                   }
+                                                                                     },
+                                                                       "transparency":  {
+                                                                                            "expr":  {
+                                                                                                         "Literal":  {
+                                                                                                                         "Value":  "0D"
+                                                                                                                     }
+                                                                                                     }
+                                                                                        }
+                                                                   }
+                                                }
+                                            ],
+                                   "outline":  [
+                                                   {
+                                                       "selector":  {
+                                                                        "id":  "default"
+                                                                    },
+                                                       "properties":  {
+                                                                          "show":  {
+                                                                                       "expr":  {
+                                                                                                    "Literal":  {
+                                                                                                                    "Value":  "false"
+                                                                                                                }
+                                                                                                }
+                                                                                   }
+                                                                      }
+                                                   }
+                                               ]
+                               },
+                   "visualContainerObjects":  {
+                                                  "visualLink":  [
+                                                                     {
+                                                                         "properties":  {
+                                                                                            "show":  {
+                                                                                                         "expr":  {
+                                                                                                                      "Literal":  {
+                                                                                                                                      "Value":  "true"
+                                                                                                                                  }
+                                                                                                                  }
+                                                                                                     },
+                                                                                            "type":  {
+                                                                                                         "expr":  {
+                                                                                                                      "Literal":  {
+                                                                                                                                      "Value":  "\u0027PageNavigation\u0027"
+                                                                                                                                  }
+                                                                                                                  }
+                                                                                                     },
+                                                                                            "navigationSection":  {
+                                                                                                                      "expr":  {
+                                                                                                                                   "Literal":  {
+                                                                                                                                                   "Value":  "\u0027resumen\u0027"
+                                                                                                                                               }
+                                                                                                                               }
+                                                                                                                  }
+                                                                                        }
+                                                                     }
+                                                                 ]
+                                              },
+                   "drillFilterOtherVisuals":  true
+               }
+}

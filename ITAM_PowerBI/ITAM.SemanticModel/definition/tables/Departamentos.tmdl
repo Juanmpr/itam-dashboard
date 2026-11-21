@@ -1,0 +1,29 @@
+table Departamentos
+
+	column DeptoID
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: DeptoID
+
+	column Departamento
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Departamento
+
+	column CentroCoste
+		dataType: string
+		summarizeBy: none
+		sourceColumn: CentroCoste
+
+	partition Departamentos = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "Departamentos.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tildes = Table.TransformColumns(Encabezados, {{"Departamento", fnTildes, type text}}),
+					Tipos = Table.TransformColumnTypes(Tildes, {{"DeptoID", Int64.Type}, {"CentroCoste", type text}}, "en-US")
+				in
+					Tipos

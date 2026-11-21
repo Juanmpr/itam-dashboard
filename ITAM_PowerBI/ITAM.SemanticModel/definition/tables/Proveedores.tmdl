@@ -1,0 +1,29 @@
+table Proveedores
+
+	column ProveedorID
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: ProveedorID
+
+	column Proveedor
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Proveedor
+
+	column TipoProveedor
+		dataType: string
+		summarizeBy: none
+		sourceColumn: TipoProveedor
+
+	partition Proveedores = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "Proveedores.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tildes = Table.TransformColumns(Encabezados, {{"Proveedor", fnTildes, type text}}),
+					Tipos = Table.TransformColumnTypes(Tildes, {{"ProveedorID", Int64.Type}, {"TipoProveedor", type text}}, "en-US")
+				in
+					Tipos

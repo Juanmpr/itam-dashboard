@@ -1,0 +1,38 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "kpi_1",
+    "position":  {
+                     "x":  442,
+                     "y":  78,
+                     "z":  1760,
+                     "height":  92,
+                     "width":  267,
+                     "tabOrder":  1760
+                 },
+    "visual":  {
+                   "visualType":  "card",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Values":  {
+                                                                   "projections":  [
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Measure":  {
+                                                                                                                         "Expression":  {
+                                                                                                                                            "SourceRef":  {
+                                                                                                                                                              "Entity":  "_Medidas"
+                                                                                                                                                          }
+                                                                                                                                        },
+                                                                                                                         "Property":  "Ahorro Potencial Licencias"
+                                                                                                                     }
+                                                                                                     },
+                                                                                           "queryRef":  "_Medidas.Ahorro Potencial Licencias",
+                                                                                           "nativeQueryRef":  "Ahorro Potencial Licencias"
+                                                                                       }
+                                                                                   ]
+                                                               }
+                                                }
+                             },
+                   "drillFilterOtherVisuals":  true
+               }
+}

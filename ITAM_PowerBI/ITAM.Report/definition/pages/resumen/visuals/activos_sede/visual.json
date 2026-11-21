@@ -1,0 +1,95 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "activos_sede",
+    "position":  {
+                     "x":  165,
+                     "y":  180,
+                     "z":  1180,
+                     "height":  265,
+                     "width":  545,
+                     "tabOrder":  1180
+                 },
+    "visual":  {
+                   "visualType":  "clusteredBarChart",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Category":  {
+                                                                     "projections":  [
+                                                                                         {
+                                                                                             "field":  {
+                                                                                                           "Column":  {
+                                                                                                                          "Expression":  {
+                                                                                                                                             "SourceRef":  {
+                                                                                                                                                               "Entity":  "Ubicaciones"
+                                                                                                                                                           }
+                                                                                                                                         },
+                                                                                                                          "Property":  "Sede"
+                                                                                                                      }
+                                                                                                       },
+                                                                                             "queryRef":  "Ubicaciones.Sede",
+                                                                                             "nativeQueryRef":  "Sede"
+                                                                                         }
+                                                                                     ]
+                                                                 },
+                                                    "Y":  {
+                                                              "projections":  [
+                                                                                  {
+                                                                                      "field":  {
+                                                                                                    "Measure":  {
+                                                                                                                    "Expression":  {
+                                                                                                                                       "SourceRef":  {
+                                                                                                                                                         "Entity":  "_Medidas"
+                                                                                                                                                     }
+                                                                                                                                   },
+                                                                                                                    "Property":  "Activos Operativos"
+                                                                                                                }
+                                                                                                },
+                                                                                      "queryRef":  "_Medidas.Activos Operativos",
+                                                                                      "nativeQueryRef":  "Activos Operativos"
+                                                                                  }
+                                                                              ]
+                                                          }
+                                                },
+                                 "sortDefinition":  {
+                                                        "sort":  [
+                                                                     {
+                                                                         "field":  {
+                                                                                       "Measure":  {
+                                                                                                       "Expression":  {
+                                                                                                                          "SourceRef":  {
+                                                                                                                                            "Entity":  "_Medidas"
+                                                                                                                                        }
+                                                                                                                      },
+                                                                                                       "Property":  "Activos Operativos"
+                                                                                                   }
+                                                                                   },
+                                                                         "direction":  "Descending"
+                                                                     }
+                                                                 ]
+                                                    }
+                             },
+                   "visualContainerObjects":  {
+                                                  "title":  [
+                                                                {
+                                                                    "properties":  {
+                                                                                       "show":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "true"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                },
+                                                                                       "text":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "\u0027Madrid concentra el 30 % del parque\u0027"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                }
+                                                                                   }
+                                                                }
+                                                            ]
+                                              },
+                   "drillFilterOtherVisuals":  true
+               }
+}

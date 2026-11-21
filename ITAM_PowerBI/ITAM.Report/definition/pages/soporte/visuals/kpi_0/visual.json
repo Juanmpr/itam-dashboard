@@ -1,0 +1,38 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "kpi_0",
+    "position":  {
+                     "x":  165,
+                     "y":  78,
+                     "z":  1540,
+                     "height":  92,
+                     "width":  175,
+                     "tabOrder":  1540
+                 },
+    "visual":  {
+                   "visualType":  "card",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Values":  {
+                                                                   "projections":  [
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Measure":  {
+                                                                                                                         "Expression":  {
+                                                                                                                                            "SourceRef":  {
+                                                                                                                                                              "Entity":  "_Medidas"
+                                                                                                                                                          }
+                                                                                                                                        },
+                                                                                                                         "Property":  "Total Incidencias"
+                                                                                                                     }
+                                                                                                     },
+                                                                                           "queryRef":  "_Medidas.Total Incidencias",
+                                                                                           "nativeQueryRef":  "Total Incidencias"
+                                                                                       }
+                                                                                   ]
+                                                               }
+                                                }
+                             },
+                   "drillFilterOtherVisuals":  true
+               }
+}

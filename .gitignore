@@ -1,0 +1,17 @@
+# Configuración local de Claude / editor
+.claude/
+.vscode/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Power BI: archivos locales y caché
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# Sistema
+Thumbs.db
+.DS_Store

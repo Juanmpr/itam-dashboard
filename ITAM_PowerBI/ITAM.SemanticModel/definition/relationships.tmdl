@@ -1,0 +1,36 @@
+relationship rel_Incidencias_Activos
+	fromColumn: Incidencias.ActivoID
+	toColumn: Activos.ActivoID
+
+relationship rel_Incidencias_SLA
+	fromColumn: Incidencias.Prioridad
+	toColumn: SLA.Prioridad
+
+relationship rel_Incidencias_Calendario
+	fromColumn: Incidencias.FechaApertura
+	toColumn: Calendario.Date
+
+relationship rel_Activos_Calendario_Compra
+	isActive: false
+	fromColumn: Activos.FechaCompra
+	toColumn: Calendario.Date
+
+relationship rel_Activos_Empleados
+	fromColumn: Activos.EmpleadoID
+	toColumn: Empleados.EmpleadoID
+
+relationship rel_Activos_Departamentos
+	fromColumn: Activos.DeptoID
+	toColumn: Departamentos.DeptoID
+
+relationship rel_Activos_Ubicaciones
+	fromColumn: Activos.UbicacionID
+	toColumn: Ubicaciones.UbicacionID
+
+relationship rel_Activos_Proveedores
+	fromColumn: Activos.ProveedorID
+	toColumn: Proveedores.ProveedorID
+
+relationship rel_Licencias_Departamentos
+	fromColumn: Licencias.DeptoID
+	toColumn: Departamentos.DeptoID

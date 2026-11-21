@@ -1,0 +1,96 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "mttr_sede",
+    "position":  {
+                     "x":  165,
+                     "y":  455,
+                     "z":  1620,
+                     "height":  255,
+                     "width":  545,
+                     "tabOrder":  1620
+                 },
+    "visual":  {
+                   "visualType":  "lineClusteredColumnComboChart",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Category":  {
+                                                                     "projections":  [
+                                                                                         {
+                                                                                             "field":  {
+                                                                                                           "Column":  {
+                                                                                                                          "Expression":  {
+                                                                                                                                             "SourceRef":  {
+                                                                                                                                                               "Entity":  "Ubicaciones"
+                                                                                                                                                           }
+                                                                                                                                         },
+                                                                                                                          "Property":  "Sede"
+                                                                                                                      }
+                                                                                                       },
+                                                                                             "queryRef":  "Ubicaciones.Sede",
+                                                                                             "nativeQueryRef":  "Sede"
+                                                                                         }
+                                                                                     ]
+                                                                 },
+                                                    "Y":  {
+                                                              "projections":  [
+                                                                                  {
+                                                                                      "field":  {
+                                                                                                    "Measure":  {
+                                                                                                                    "Expression":  {
+                                                                                                                                       "SourceRef":  {
+                                                                                                                                                         "Entity":  "_Medidas"
+                                                                                                                                                     }
+                                                                                                                                   },
+                                                                                                                    "Property":  "MTTR (h)"
+                                                                                                                }
+                                                                                                },
+                                                                                      "queryRef":  "_Medidas.MTTR (h)",
+                                                                                      "nativeQueryRef":  "MTTR (h)"
+                                                                                  }
+                                                                              ]
+                                                          },
+                                                    "Y2":  {
+                                                               "projections":  [
+                                                                                   {
+                                                                                       "field":  {
+                                                                                                     "Measure":  {
+                                                                                                                     "Expression":  {
+                                                                                                                                        "SourceRef":  {
+                                                                                                                                                          "Entity":  "_Medidas"
+                                                                                                                                                      }
+                                                                                                                                    },
+                                                                                                                     "Property":  "% Cumplimiento SLA"
+                                                                                                                 }
+                                                                                                 },
+                                                                                       "queryRef":  "_Medidas.% Cumplimiento SLA",
+                                                                                       "nativeQueryRef":  "% Cumplimiento SLA"
+                                                                                   }
+                                                                               ]
+                                                           }
+                                                }
+                             },
+                   "visualContainerObjects":  {
+                                                  "title":  [
+                                                                {
+                                                                    "properties":  {
+                                                                                       "show":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "true"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                },
+                                                                                       "text":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "\u0027Lima tarda casi el doble en resolver incidencias\u0027"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                }
+                                                                                   }
+                                                                }
+                                                            ]
+                                              },
+                   "drillFilterOtherVisuals":  true
+               }
+}

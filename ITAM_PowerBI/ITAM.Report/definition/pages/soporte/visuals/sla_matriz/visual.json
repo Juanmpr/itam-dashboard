@@ -1,0 +1,96 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "sla_matriz",
+    "position":  {
+                     "x":  720,
+                     "y":  455,
+                     "z":  1630,
+                     "height":  255,
+                     "width":  545,
+                     "tabOrder":  1630
+                 },
+    "visual":  {
+                   "visualType":  "pivotTable",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Rows":  {
+                                                                 "projections":  [
+                                                                                     {
+                                                                                         "field":  {
+                                                                                                       "Column":  {
+                                                                                                                      "Expression":  {
+                                                                                                                                         "SourceRef":  {
+                                                                                                                                                           "Entity":  "SLA"
+                                                                                                                                                       }
+                                                                                                                                     },
+                                                                                                                      "Property":  "Prioridad"
+                                                                                                                  }
+                                                                                                   },
+                                                                                         "queryRef":  "SLA.Prioridad",
+                                                                                         "nativeQueryRef":  "Prioridad"
+                                                                                     }
+                                                                                 ]
+                                                             },
+                                                    "Columns":  {
+                                                                    "projections":  [
+                                                                                        {
+                                                                                            "field":  {
+                                                                                                          "Column":  {
+                                                                                                                         "Expression":  {
+                                                                                                                                            "SourceRef":  {
+                                                                                                                                                              "Entity":  "Ubicaciones"
+                                                                                                                                                          }
+                                                                                                                                        },
+                                                                                                                         "Property":  "Sede"
+                                                                                                                     }
+                                                                                                      },
+                                                                                            "queryRef":  "Ubicaciones.Sede",
+                                                                                            "nativeQueryRef":  "Sede"
+                                                                                        }
+                                                                                    ]
+                                                                },
+                                                    "Values":  {
+                                                                   "projections":  [
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Measure":  {
+                                                                                                                         "Expression":  {
+                                                                                                                                            "SourceRef":  {
+                                                                                                                                                              "Entity":  "_Medidas"
+                                                                                                                                                          }
+                                                                                                                                        },
+                                                                                                                         "Property":  "% Cumplimiento SLA"
+                                                                                                                     }
+                                                                                                     },
+                                                                                           "queryRef":  "_Medidas.% Cumplimiento SLA",
+                                                                                           "nativeQueryRef":  "% Cumplimiento SLA"
+                                                                                       }
+                                                                                   ]
+                                                               }
+                                                }
+                             },
+                   "visualContainerObjects":  {
+                                                  "title":  [
+                                                                {
+                                                                    "properties":  {
+                                                                                       "show":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "true"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                },
+                                                                                       "text":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "\u0027Cumplimiento del SLA por prioridad y sede\u0027"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                }
+                                                                                   }
+                                                                }
+                                                            ]
+                                              },
+                   "drillFilterOtherVisuals":  true
+               }
+}

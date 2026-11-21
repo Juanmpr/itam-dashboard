@@ -1,0 +1,109 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "uso_software",
+    "position":  {
+                     "x":  165,
+                     "y":  180,
+                     "z":  1790,
+                     "height":  530,
+                     "width":  700,
+                     "tabOrder":  1790
+                 },
+    "visual":  {
+                   "visualType":  "clusteredBarChart",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Category":  {
+                                                                     "projections":  [
+                                                                                         {
+                                                                                             "field":  {
+                                                                                                           "Column":  {
+                                                                                                                          "Expression":  {
+                                                                                                                                             "SourceRef":  {
+                                                                                                                                                               "Entity":  "Licencias"
+                                                                                                                                                           }
+                                                                                                                                         },
+                                                                                                                          "Property":  "Software"
+                                                                                                                      }
+                                                                                                       },
+                                                                                             "queryRef":  "Licencias.Software",
+                                                                                             "nativeQueryRef":  "Software"
+                                                                                         }
+                                                                                     ]
+                                                                 },
+                                                    "Y":  {
+                                                              "projections":  [
+                                                                                  {
+                                                                                      "field":  {
+                                                                                                    "Measure":  {
+                                                                                                                    "Expression":  {
+                                                                                                                                       "SourceRef":  {
+                                                                                                                                                         "Entity":  "_Medidas"
+                                                                                                                                                     }
+                                                                                                                                   },
+                                                                                                                    "Property":  "Licencias Compradas"
+                                                                                                                }
+                                                                                                },
+                                                                                      "queryRef":  "_Medidas.Licencias Compradas",
+                                                                                      "nativeQueryRef":  "Licencias Compradas"
+                                                                                  },
+                                                                                  {
+                                                                                      "field":  {
+                                                                                                    "Measure":  {
+                                                                                                                    "Expression":  {
+                                                                                                                                       "SourceRef":  {
+                                                                                                                                                         "Entity":  "_Medidas"
+                                                                                                                                                     }
+                                                                                                                                   },
+                                                                                                                    "Property":  "Usuarios Activos 30d"
+                                                                                                                }
+                                                                                                },
+                                                                                      "queryRef":  "_Medidas.Usuarios Activos 30d",
+                                                                                      "nativeQueryRef":  "Usuarios Activos 30d"
+                                                                                  }
+                                                                              ]
+                                                          }
+                                                },
+                                 "sortDefinition":  {
+                                                        "sort":  [
+                                                                     {
+                                                                         "field":  {
+                                                                                       "Measure":  {
+                                                                                                       "Expression":  {
+                                                                                                                          "SourceRef":  {
+                                                                                                                                            "Entity":  "_Medidas"
+                                                                                                                                        }
+                                                                                                                      },
+                                                                                                       "Property":  "Ahorro Potencial Licencias"
+                                                                                                   }
+                                                                                   },
+                                                                         "direction":  "Descending"
+                                                                     }
+                                                                 ]
+                                                    }
+                             },
+                   "visualContainerObjects":  {
+                                                  "title":  [
+                                                                {
+                                                                    "properties":  {
+                                                                                       "show":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "true"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                },
+                                                                                       "text":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "\u0027Licencias compradas frente a usuarios activos\u0027"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                }
+                                                                                   }
+                                                                }
+                                                            ]
+                                              },
+                   "drillFilterOtherVisuals":  true
+               }
+}

@@ -1,0 +1,81 @@
+table Incidencias
+
+	column IncidenciaID
+		dataType: string
+		summarizeBy: none
+		sourceColumn: IncidenciaID
+
+	column ActivoID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: ActivoID
+
+	column FechaApertura
+		dataType: dateTime
+		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: FechaApertura
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FechaCierre
+		dataType: dateTime
+		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: FechaCierre
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Categoria
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Categoria
+
+	column Prioridad
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Prioridad
+
+	column HorasResolucion
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: HorasResolucion
+
+	column CosteReparacion
+		dataType: int64
+		formatString: #,0 €
+		summarizeBy: sum
+		sourceColumn: CosteReparacion
+
+	column Canal
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Canal
+
+	column 'Cumple SLA' =
+			IF (
+				NOT ISBLANK ( Incidencias[HorasResolucion] ),
+				IF ( Incidencias[HorasResolucion] <= RELATED ( SLA[HorasSLA] ), 1, 0 )
+			)
+		formatString: 0
+		summarizeBy: none
+
+	column Cobertura = IF ( Incidencias[FechaApertura] <= RELATED ( Activos[FinGarantia] ), "Con garantía", "Sin garantía" )
+		summarizeBy: none
+
+	partition Incidencias = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "Incidencias.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Nulos = Table.ReplaceValue(Encabezados, "", null, Replacer.ReplaceValue, Table.ColumnNames(Encabezados)),
+					Tildes = Table.TransformColumns(Nulos, {{"Categoria", fnTildes, type text}, {"Prioridad", fnTildes, type text}, {"Canal", fnTildes, type text}}),
+					Tipos = Table.TransformColumnTypes(Tildes, {
+						{"IncidenciaID", type text}, {"ActivoID", type text}, {"FechaApertura", type date}, {"FechaCierre", type date},
+						{"HorasResolucion", Int64.Type}, {"CosteReparacion", Int64.Type}
+					}, "en-US")
+				in
+					Tipos

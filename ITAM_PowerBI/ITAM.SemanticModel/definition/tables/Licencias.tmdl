@@ -1,0 +1,76 @@
+table Licencias
+
+	column LicenciaID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: LicenciaID
+
+	column Software
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Software
+
+	column Categoria
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Categoria
+
+	column TipoLicencia
+		dataType: string
+		summarizeBy: none
+		sourceColumn: TipoLicencia
+
+	column LicenciasCompradas
+		dataType: int64
+		formatString: #,0
+		summarizeBy: sum
+		sourceColumn: LicenciasCompradas
+
+	column LicenciasAsignadas
+		dataType: int64
+		formatString: #,0
+		summarizeBy: sum
+		sourceColumn: LicenciasAsignadas
+
+	column UsuariosActivos30d
+		dataType: int64
+		formatString: #,0
+		summarizeBy: sum
+		sourceColumn: UsuariosActivos30d
+
+	column CosteUnitarioAnual
+		dataType: int64
+		formatString: #,0 €
+		summarizeBy: none
+		sourceColumn: CosteUnitarioAnual
+
+	column FechaRenovacion
+		dataType: dateTime
+		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: FechaRenovacion
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DeptoID
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: DeptoID
+
+	partition Licencias = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "Licencias.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Nulos = Table.ReplaceValue(Encabezados, "", null, Replacer.ReplaceValue, Table.ColumnNames(Encabezados)),
+					Tildes = Table.TransformColumns(Nulos, {{"Categoria", fnTildes, type text}, {"TipoLicencia", fnTildes, type text}}),
+					Tipos = Table.TransformColumnTypes(Tildes, {
+						{"LicenciaID", type text}, {"Software", type text}, {"LicenciasCompradas", Int64.Type}, {"LicenciasAsignadas", Int64.Type},
+						{"UsuariosActivos30d", Int64.Type}, {"CosteUnitarioAnual", Int64.Type}, {"FechaRenovacion", type date}, {"DeptoID", Int64.Type}
+					}, "en-US")
+				in
+					Tipos

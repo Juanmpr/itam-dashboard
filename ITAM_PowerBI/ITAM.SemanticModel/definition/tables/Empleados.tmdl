@@ -1,0 +1,49 @@
+table Empleados
+
+	column EmpleadoID
+		dataType: string
+		summarizeBy: none
+		sourceColumn: EmpleadoID
+
+	column Empleado
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Empleado
+
+	column Puesto
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Puesto
+
+	column FechaAlta
+		dataType: dateTime
+		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: FechaAlta
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EstadoEmpleado
+		dataType: string
+		summarizeBy: none
+		sourceColumn: EstadoEmpleado
+
+	column FechaBaja
+		dataType: dateTime
+		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: FechaBaja
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Empleados = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "Empleados.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Nulos = Table.ReplaceValue(Encabezados, "", null, Replacer.ReplaceValue, Table.ColumnNames(Encabezados)),
+					Tildes = Table.TransformColumns(Nulos, {{"Empleado", fnTildes, type text}, {"Puesto", fnTildes, type text}}),
+					Tipos = Table.TransformColumnTypes(Tildes, {{"EmpleadoID", type text}, {"FechaAlta", type date}, {"EstadoEmpleado", type text}, {"FechaBaja", type date}}, "en-US")
+				in
+					Tipos

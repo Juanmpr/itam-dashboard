@@ -1,0 +1,53 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "seg_sede",
+    "position":  {
+                     "x":  785,
+                     "y":  12,
+                     "z":  1720,
+                     "height":  56,
+                     "width":  155,
+                     "tabOrder":  1720
+                 },
+    "visual":  {
+                   "visualType":  "slicer",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Values":  {
+                                                                   "projections":  [
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Column":  {
+                                                                                                                        "Expression":  {
+                                                                                                                                           "SourceRef":  {
+                                                                                                                                                             "Entity":  "Ubicaciones"
+                                                                                                                                                         }
+                                                                                                                                       },
+                                                                                                                        "Property":  "Sede"
+                                                                                                                    }
+                                                                                                     },
+                                                                                           "queryRef":  "Ubicaciones.Sede",
+                                                                                           "nativeQueryRef":  "Sede"
+                                                                                       }
+                                                                                   ]
+                                                               }
+                                                }
+                             },
+                   "objects":  {
+                                   "data":  [
+                                                {
+                                                    "properties":  {
+                                                                       "mode":  {
+                                                                                    "expr":  {
+                                                                                                 "Literal":  {
+                                                                                                                 "Value":  "\u0027Dropdown\u0027"
+                                                                                                             }
+                                                                                             }
+                                                                                }
+                                                                   }
+                                                }
+                                            ]
+                               },
+                   "drillFilterOtherVisuals":  true
+               }
+}

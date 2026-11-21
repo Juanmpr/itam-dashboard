@@ -1,0 +1,38 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "kpi_4",
+    "position":  {
+                     "x":  905,
+                     "y":  78,
+                     "z":  1580,
+                     "height":  92,
+                     "width":  175,
+                     "tabOrder":  1580
+                 },
+    "visual":  {
+                   "visualType":  "card",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Values":  {
+                                                                   "projections":  [
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Measure":  {
+                                                                                                                         "Expression":  {
+                                                                                                                                            "SourceRef":  {
+                                                                                                                                                              "Entity":  "_Medidas"
+                                                                                                                                                          }
+                                                                                                                                        },
+                                                                                                                         "Property":  "Coste Reparaciones"
+                                                                                                                     }
+                                                                                                     },
+                                                                                           "queryRef":  "_Medidas.Coste Reparaciones",
+                                                                                           "nativeQueryRef":  "Coste Reparaciones"
+                                                                                       }
+                                                                                   ]
+                                                               }
+                                                }
+                             },
+                   "drillFilterOtherVisuals":  true
+               }
+}

@@ -1,0 +1,96 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "matriz_edad",
+    "position":  {
+                     "x":  165,
+                     "y":  180,
+                     "z":  1390,
+                     "height":  265,
+                     "width":  545,
+                     "tabOrder":  1390
+                 },
+    "visual":  {
+                   "visualType":  "pivotTable",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Rows":  {
+                                                                 "projections":  [
+                                                                                     {
+                                                                                         "field":  {
+                                                                                                       "Column":  {
+                                                                                                                      "Expression":  {
+                                                                                                                                         "SourceRef":  {
+                                                                                                                                                           "Entity":  "Departamentos"
+                                                                                                                                                       }
+                                                                                                                                     },
+                                                                                                                      "Property":  "Departamento"
+                                                                                                                  }
+                                                                                                   },
+                                                                                         "queryRef":  "Departamentos.Departamento",
+                                                                                         "nativeQueryRef":  "Departamento"
+                                                                                     }
+                                                                                 ]
+                                                             },
+                                                    "Columns":  {
+                                                                    "projections":  [
+                                                                                        {
+                                                                                            "field":  {
+                                                                                                          "Column":  {
+                                                                                                                         "Expression":  {
+                                                                                                                                            "SourceRef":  {
+                                                                                                                                                              "Entity":  "Activos"
+                                                                                                                                                          }
+                                                                                                                                        },
+                                                                                                                         "Property":  "Rango Edad"
+                                                                                                                     }
+                                                                                                      },
+                                                                                            "queryRef":  "Activos.Rango Edad",
+                                                                                            "nativeQueryRef":  "Rango Edad"
+                                                                                        }
+                                                                                    ]
+                                                                },
+                                                    "Values":  {
+                                                                   "projections":  [
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Measure":  {
+                                                                                                                         "Expression":  {
+                                                                                                                                            "SourceRef":  {
+                                                                                                                                                              "Entity":  "_Medidas"
+                                                                                                                                                          }
+                                                                                                                                        },
+                                                                                                                         "Property":  "Activos Operativos"
+                                                                                                                     }
+                                                                                                     },
+                                                                                           "queryRef":  "_Medidas.Activos Operativos",
+                                                                                           "nativeQueryRef":  "Activos Operativos"
+                                                                                       }
+                                                                                   ]
+                                                               }
+                                                }
+                             },
+                   "visualContainerObjects":  {
+                                                  "title":  [
+                                                                {
+                                                                    "properties":  {
+                                                                                       "show":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "true"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                },
+                                                                                       "text":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "\u0027Antigüedad del parque por departamento\u0027"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                }
+                                                                                   }
+                                                                }
+                                                            ]
+                                              },
+                   "drillFilterOtherVisuals":  true
+               }
+}

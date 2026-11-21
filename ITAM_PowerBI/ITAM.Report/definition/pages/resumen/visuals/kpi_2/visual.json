@@ -1,0 +1,38 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "kpi_2",
+    "position":  {
+                     "x":  535,
+                     "y":  78,
+                     "z":  1140,
+                     "height":  92,
+                     "width":  175,
+                     "tabOrder":  1140
+                 },
+    "visual":  {
+                   "visualType":  "card",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Values":  {
+                                                                   "projections":  [
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Measure":  {
+                                                                                                                         "Expression":  {
+                                                                                                                                            "SourceRef":  {
+                                                                                                                                                              "Entity":  "_Medidas"
+                                                                                                                                                          }
+                                                                                                                                        },
+                                                                                                                         "Property":  "% Fuera de Garantía"
+                                                                                                                     }
+                                                                                                     },
+                                                                                           "queryRef":  "_Medidas.% Fuera de Garantía",
+                                                                                           "nativeQueryRef":  "% Fuera de Garantía"
+                                                                                       }
+                                                                                   ]
+                                                               }
+                                                }
+                             },
+                   "drillFilterOtherVisuals":  true
+               }
+}

@@ -1,0 +1,48 @@
+table Ubicaciones
+
+	column UbicacionID
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: UbicacionID
+
+	column Sede
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Sede
+
+	column Ciudad
+		dataType: string
+		dataCategory: City
+		summarizeBy: none
+		sourceColumn: Ciudad
+
+	column Pais
+		dataType: string
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: Pais
+
+	column Latitud
+		dataType: double
+		dataCategory: Latitude
+		summarizeBy: none
+		sourceColumn: Latitud
+
+	column Longitud
+		dataType: double
+		dataCategory: Longitude
+		summarizeBy: none
+		sourceColumn: Longitud
+
+	partition Ubicaciones = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "Ubicaciones.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tildes = Table.TransformColumns(Encabezados, {{"Sede", fnTildes, type text}, {"Ciudad", fnTildes, type text}, {"Pais", fnTildes, type text}}),
+					Tipos = Table.TransformColumnTypes(Tildes, {{"UbicacionID", Int64.Type}, {"Latitud", type number}, {"Longitud", type number}}, "en-US")
+				in
+					Tipos

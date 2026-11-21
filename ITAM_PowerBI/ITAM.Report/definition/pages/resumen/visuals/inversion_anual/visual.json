@@ -1,0 +1,78 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "inversion_anual",
+    "position":  {
+                     "x":  165,
+                     "y":  455,
+                     "z":  1200,
+                     "height":  255,
+                     "width":  545,
+                     "tabOrder":  1200
+                 },
+    "visual":  {
+                   "visualType":  "clusteredColumnChart",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Category":  {
+                                                                     "projections":  [
+                                                                                         {
+                                                                                             "field":  {
+                                                                                                           "Column":  {
+                                                                                                                          "Expression":  {
+                                                                                                                                             "SourceRef":  {
+                                                                                                                                                               "Entity":  "Calendario"
+                                                                                                                                                           }
+                                                                                                                                         },
+                                                                                                                          "Property":  "Año"
+                                                                                                                      }
+                                                                                                       },
+                                                                                             "queryRef":  "Calendario.Año",
+                                                                                             "nativeQueryRef":  "Año"
+                                                                                         }
+                                                                                     ]
+                                                                 },
+                                                    "Y":  {
+                                                              "projections":  [
+                                                                                  {
+                                                                                      "field":  {
+                                                                                                    "Measure":  {
+                                                                                                                    "Expression":  {
+                                                                                                                                       "SourceRef":  {
+                                                                                                                                                         "Entity":  "_Medidas"
+                                                                                                                                                     }
+                                                                                                                                   },
+                                                                                                                    "Property":  "Inversión en Compras"
+                                                                                                                }
+                                                                                                },
+                                                                                      "queryRef":  "_Medidas.Inversión en Compras",
+                                                                                      "nativeQueryRef":  "Inversión en Compras"
+                                                                                  }
+                                                                              ]
+                                                          }
+                                                }
+                             },
+                   "visualContainerObjects":  {
+                                                  "title":  [
+                                                                {
+                                                                    "properties":  {
+                                                                                       "show":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "true"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                },
+                                                                                       "text":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "\u0027Inversión en compras estable, unos 400 k€ al año\u0027"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                }
+                                                                                   }
+                                                                }
+                                                            ]
+                                              },
+                   "drillFilterOtherVisuals":  true
+               }
+}

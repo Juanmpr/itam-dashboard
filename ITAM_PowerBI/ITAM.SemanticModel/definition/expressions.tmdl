@@ -1,0 +1,23 @@
+expression RutaDatos = "C:\Users\User\AppData\Local\Claude-Data\claude_pzs8sxrjxfjjc\scratch-workspaces\b14cdb8b-2a8e-4bb6-b12c-af58e5c06490\38d266e4-9a6f-4361-b760-9c5b5d225994\scratch-2026-11-20-5ee072\datos\" meta [IsParameterQuery = true, Type = "Text", IsParameterQueryRequired = true]
+	annotation PBI_ResultType = Text
+
+expression fnTildes =
+			let
+				Dic = [
+					Portatil = "Portátil", Movil = "Móvil", Critica = "Crítica", Bateria = "Batería",
+					Basica = "Básica", Estandar = "Estándar", reparacion = "reparación", Perifericos = "Periféricos",
+					Telefono = "Teléfono", Direccion = "Dirección", Atencion = "Atención", Espana = "España",
+					Mexico = "México", Peru = "Perú", Bogota = "Bogotá", Distribucion = "Distribución",
+					Diseno = "Diseño", Analitica = "Analítica", Comunicacion = "Comunicación", Gestion = "Gestión",
+					Colaboracion = "Colaboración", Ofimatica = "Ofimática", Logistica = "Logística", Tecnico = "Técnico",
+					Disenador = "Diseñador", Seleccion = "Selección", Maria = "María", Lucia = "Lucía", Sofia = "Sofía",
+					Andres = "Andrés", Raul = "Raúl", Tomas = "Tomás", Garcia = "García", Rodriguez = "Rodríguez",
+					Lopez = "López", Martinez = "Martínez", Gonzalez = "González", Perez = "Pérez", Sanchez = "Sánchez",
+					Ramirez = "Ramírez", Gomez = "Gómez", Diaz = "Díaz", Suarez = "Suárez"
+				],
+				Fn = (t as nullable text) as nullable text =>
+					if t = null then null
+					else Text.Combine(List.Transform(Text.Split(t, " "), each Record.FieldOrDefault(Dic, _, _)), " ")
+			in
+				Fn
+	annotation PBI_ResultType = Function

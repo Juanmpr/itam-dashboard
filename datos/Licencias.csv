@@ -1,0 +1,19 @@
+﻿LicenciaID,Software,Categoria,TipoLicencia,LicenciasCompradas,LicenciasAsignadas,UsuariosActivos30d,CosteUnitarioAnual,FechaRenovacion,DeptoID
+L001,Microsoft 365 E3,Ofimatica,Suscripcion,620,598,571,380,2027-01-31,1
+L002,Adobe Creative Cloud,Diseno,Suscripcion,45,41,19,780,2026-12-15,3
+L003,Salesforce Sales Cloud,CRM,Suscripcion,160,152,131,1200,2027-03-31,2
+L004,Zoom Business,Comunicacion,Suscripcion,250,231,64,180,2026-12-01,1
+L005,Slack Pro,Comunicacion,Suscripcion,300,287,262,105,2027-05-31,1
+L006,Tableau Creator,Analitica,Suscripcion,25,22,9,900,2027-02-28,4
+L007,Power BI Pro,Analitica,Suscripcion,80,74,68,168,2027-01-31,4
+L008,AutoCAD,Diseno,Suscripcion,12,10,3,2100,2027-04-30,6
+L009,SAP Business One,ERP,Suscripcion,95,93,90,1450,2027-06-30,4
+L010,Zendesk Suite,Soporte,Suscripcion,140,136,129,690,2027-01-15,7
+L011,Atlassian Jira,Gestion de proyectos,Suscripcion,70,66,58,95,2027-08-31,1
+L012,DocuSign,Firma digital,Suscripcion,40,38,14,300,2026-11-30,5
+L013,Antivirus Endpoint,Seguridad,Suscripcion,1500,1412,1398,38,2027-02-15,1
+L014,VPN Corporativa,Seguridad,Suscripcion,650,610,355,48,2027-03-15,1
+L015,Windows Server Datacenter,Sistemas,Perpetua,20,18,18,0,,1
+L016,Microsoft Visio,Ofimatica,Perpetua,60,52,11,0,,1
+L017,Miro Business,Colaboracion,Suscripcion,90,84,30,120,2027-01-10,3
+L018,LinkedIn Sales Navigator,CRM,Suscripcion,35,33,12,950,2026-12-20,2

@@ -1,0 +1,123 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "activos_tipo",
+    "position":  {
+                     "x":  720,
+                     "y":  180,
+                     "z":  1190,
+                     "height":  265,
+                     "width":  545,
+                     "tabOrder":  1190
+                 },
+    "visual":  {
+                   "visualType":  "barChart",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Category":  {
+                                                                     "projections":  [
+                                                                                         {
+                                                                                             "field":  {
+                                                                                                           "Column":  {
+                                                                                                                          "Expression":  {
+                                                                                                                                             "SourceRef":  {
+                                                                                                                                                               "Entity":  "Activos"
+                                                                                                                                                           }
+                                                                                                                                         },
+                                                                                                                          "Property":  "TipoActivo"
+                                                                                                                      }
+                                                                                                       },
+                                                                                             "queryRef":  "Activos.TipoActivo",
+                                                                                             "nativeQueryRef":  "TipoActivo"
+                                                                                         }
+                                                                                     ]
+                                                                 },
+                                                    "Y":  {
+                                                              "projections":  [
+                                                                                  {
+                                                                                      "field":  {
+                                                                                                    "Measure":  {
+                                                                                                                    "Expression":  {
+                                                                                                                                       "SourceRef":  {
+                                                                                                                                                         "Entity":  "_Medidas"
+                                                                                                                                                     }
+                                                                                                                                   },
+                                                                                                                    "Property":  "Activos en Uso"
+                                                                                                                }
+                                                                                                },
+                                                                                      "queryRef":  "_Medidas.Activos en Uso",
+                                                                                      "nativeQueryRef":  "Activos en Uso"
+                                                                                  },
+                                                                                  {
+                                                                                      "field":  {
+                                                                                                    "Measure":  {
+                                                                                                                    "Expression":  {
+                                                                                                                                       "SourceRef":  {
+                                                                                                                                                         "Entity":  "_Medidas"
+                                                                                                                                                     }
+                                                                                                                                   },
+                                                                                                                    "Property":  "Activos en Stock"
+                                                                                                                }
+                                                                                                },
+                                                                                      "queryRef":  "_Medidas.Activos en Stock",
+                                                                                      "nativeQueryRef":  "Activos en Stock"
+                                                                                  },
+                                                                                  {
+                                                                                      "field":  {
+                                                                                                    "Measure":  {
+                                                                                                                    "Expression":  {
+                                                                                                                                       "SourceRef":  {
+                                                                                                                                                         "Entity":  "_Medidas"
+                                                                                                                                                     }
+                                                                                                                                   },
+                                                                                                                    "Property":  "Activos en Reparación"
+                                                                                                                }
+                                                                                                },
+                                                                                      "queryRef":  "_Medidas.Activos en Reparación",
+                                                                                      "nativeQueryRef":  "Activos en Reparación"
+                                                                                  }
+                                                                              ]
+                                                          }
+                                                },
+                                 "sortDefinition":  {
+                                                        "sort":  [
+                                                                     {
+                                                                         "field":  {
+                                                                                       "Measure":  {
+                                                                                                       "Expression":  {
+                                                                                                                          "SourceRef":  {
+                                                                                                                                            "Entity":  "_Medidas"
+                                                                                                                                        }
+                                                                                                                      },
+                                                                                                       "Property":  "Activos en Uso"
+                                                                                                   }
+                                                                                   },
+                                                                         "direction":  "Descending"
+                                                                     }
+                                                                 ]
+                                                    }
+                             },
+                   "visualContainerObjects":  {
+                                                  "title":  [
+                                                                {
+                                                                    "properties":  {
+                                                                                       "show":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "true"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                },
+                                                                                       "text":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "\u0027Portátiles y monitores son el 61 % del parque\u0027"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                }
+                                                                                   }
+                                                                }
+                                                            ]
+                                              },
+                   "drillFilterOtherVisuals":  true
+               }
+}

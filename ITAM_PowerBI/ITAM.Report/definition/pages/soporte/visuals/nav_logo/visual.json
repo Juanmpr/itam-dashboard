@@ -1,0 +1,50 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "nav_logo",
+    "position":  {
+                     "x":  10,
+                     "y":  18,
+                     "z":  1440,
+                     "height":  60,
+                     "width":  130,
+                     "tabOrder":  1440
+                 },
+    "visual":  {
+                   "visualType":  "textbox",
+                   "objects":  {
+                                   "general":  [
+                                                   {
+                                                       "properties":  {
+                                                                          "paragraphs":  [
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "20pt",
+                                                                                                                                        "fontWeight":  "bold",
+                                                                                                                                        "color":  "#FFFFFF"
+                                                                                                                                    },
+                                                                                                                      "value":  "ITAM"
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             },
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "9pt",
+                                                                                                                                        "fontWeight":  "normal",
+                                                                                                                                        "color":  "#94A3B8"
+                                                                                                                                    },
+                                                                                                                      "value":  "Grupo Andino Retail"
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             }
+                                                                                         ]
+                                                                      }
+                                                   }
+                                               ]
+                               },
+                   "drillFilterOtherVisuals":  true
+               }
+}

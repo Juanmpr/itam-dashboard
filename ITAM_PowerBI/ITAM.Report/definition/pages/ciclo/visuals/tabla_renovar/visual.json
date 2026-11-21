@@ -1,0 +1,201 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "tabla_renovar",
+    "position":  {
+                     "x":  475,
+                     "y":  455,
+                     "z":  1420,
+                     "height":  255,
+                     "width":  790,
+                     "tabOrder":  1420
+                 },
+    "visual":  {
+                   "visualType":  "tableEx",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Values":  {
+                                                                   "projections":  [
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Column":  {
+                                                                                                                        "Expression":  {
+                                                                                                                                           "SourceRef":  {
+                                                                                                                                                             "Entity":  "Activos"
+                                                                                                                                                         }
+                                                                                                                                       },
+                                                                                                                        "Property":  "ActivoID"
+                                                                                                                    }
+                                                                                                     },
+                                                                                           "queryRef":  "Activos.ActivoID",
+                                                                                           "nativeQueryRef":  "ActivoID"
+                                                                                       },
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Column":  {
+                                                                                                                        "Expression":  {
+                                                                                                                                           "SourceRef":  {
+                                                                                                                                                             "Entity":  "Activos"
+                                                                                                                                                         }
+                                                                                                                                       },
+                                                                                                                        "Property":  "Modelo"
+                                                                                                                    }
+                                                                                                     },
+                                                                                           "queryRef":  "Activos.Modelo",
+                                                                                           "nativeQueryRef":  "Modelo"
+                                                                                       },
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Column":  {
+                                                                                                                        "Expression":  {
+                                                                                                                                           "SourceRef":  {
+                                                                                                                                                             "Entity":  "Departamentos"
+                                                                                                                                                         }
+                                                                                                                                       },
+                                                                                                                        "Property":  "Departamento"
+                                                                                                                    }
+                                                                                                     },
+                                                                                           "queryRef":  "Departamentos.Departamento",
+                                                                                           "nativeQueryRef":  "Departamento"
+                                                                                       },
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Column":  {
+                                                                                                                        "Expression":  {
+                                                                                                                                           "SourceRef":  {
+                                                                                                                                                             "Entity":  "Empleados"
+                                                                                                                                                         }
+                                                                                                                                       },
+                                                                                                                        "Property":  "Empleado"
+                                                                                                                    }
+                                                                                                     },
+                                                                                           "queryRef":  "Empleados.Empleado",
+                                                                                           "nativeQueryRef":  "Empleado"
+                                                                                       },
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Column":  {
+                                                                                                                        "Expression":  {
+                                                                                                                                           "SourceRef":  {
+                                                                                                                                                             "Entity":  "Activos"
+                                                                                                                                                         }
+                                                                                                                                       },
+                                                                                                                        "Property":  "SistemaOperativo"
+                                                                                                                    }
+                                                                                                     },
+                                                                                           "queryRef":  "Activos.SistemaOperativo",
+                                                                                           "nativeQueryRef":  "SistemaOperativo"
+                                                                                       },
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Column":  {
+                                                                                                                        "Expression":  {
+                                                                                                                                           "SourceRef":  {
+                                                                                                                                                             "Entity":  "Activos"
+                                                                                                                                                         }
+                                                                                                                                       },
+                                                                                                                        "Property":  "Edad (años)"
+                                                                                                                    }
+                                                                                                     },
+                                                                                           "queryRef":  "Activos.Edad (años)",
+                                                                                           "nativeQueryRef":  "Edad (años)"
+                                                                                       },
+                                                                                       {
+                                                                                           "field":  {
+                                                                                                         "Column":  {
+                                                                                                                        "Expression":  {
+                                                                                                                                           "SourceRef":  {
+                                                                                                                                                             "Entity":  "Activos"
+                                                                                                                                                         }
+                                                                                                                                       },
+                                                                                                                        "Property":  "CosteCompra"
+                                                                                                                    }
+                                                                                                     },
+                                                                                           "queryRef":  "Activos.CosteCompra",
+                                                                                           "nativeQueryRef":  "CosteCompra"
+                                                                                       }
+                                                                                   ]
+                                                               }
+                                                }
+                             },
+                   "visualContainerObjects":  {
+                                                  "title":  [
+                                                                {
+                                                                    "properties":  {
+                                                                                       "show":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "true"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                },
+                                                                                       "text":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "\u0027Equipos a renovar\u0027"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                }
+                                                                                   }
+                                                                }
+                                                            ]
+                                              },
+                   "drillFilterOtherVisuals":  true
+               },
+    "filterConfig":  {
+                         "filters":  [
+                                         {
+                                             "name":  "f_RequiereRenovación",
+                                             "field":  {
+                                                           "Column":  {
+                                                                          "Expression":  {
+                                                                                             "SourceRef":  {
+                                                                                                               "Entity":  "Activos"
+                                                                                                           }
+                                                                                         },
+                                                                          "Property":  "Requiere Renovación"
+                                                                      }
+                                                       },
+                                             "type":  "Categorical",
+                                             "filter":  {
+                                                            "Version":  2,
+                                                            "From":  [
+                                                                         {
+                                                                             "Name":  "a",
+                                                                             "Entity":  "Activos",
+                                                                             "Type":  0
+                                                                         }
+                                                                     ],
+                                                            "Where":  [
+                                                                          {
+                                                                              "Condition":  {
+                                                                                                "In":  {
+                                                                                                           "Expressions":  [
+                                                                                                                               {
+                                                                                                                                   "Column":  {
+                                                                                                                                                  "Expression":  {
+                                                                                                                                                                     "SourceRef":  {
+                                                                                                                                                                                       "Source":  "a"
+                                                                                                                                                                                   }
+                                                                                                                                                                 },
+                                                                                                                                                  "Property":  "Requiere Renovación"
+                                                                                                                                              }
+                                                                                                                               }
+                                                                                                                           ],
+                                                                                                           "Values":  [
+                                                                                                                          [
+                                                                                                                              {
+                                                                                                                                  "Literal":  {
+                                                                                                                                                  "Value":  "true"
+                                                                                                                                              }
+                                                                                                                              }
+                                                                                                                          ]
+                                                                                                                      ]
+                                                                                                       }
+                                                                                            }
+                                                                          }
+                                                                      ]
+                                                        }
+                                         }
+                                     ]
+                     }
+}

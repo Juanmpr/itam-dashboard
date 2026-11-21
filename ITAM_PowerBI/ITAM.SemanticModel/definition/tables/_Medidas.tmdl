@@ -1,0 +1,187 @@
+table _Medidas
+
+	measure 'Fecha Corte' = DATE ( 2026, 10, 31 )
+		formatString: Short Date
+		displayFolder: Parámetros
+
+	measure 'Activos Totales' = COUNTROWS ( Activos )
+		formatString: #,0
+		displayFolder: Inventario
+
+	measure 'Activos Operativos' = CALCULATE ( [Activos Totales], Activos[Es Operativo] = TRUE () )
+		formatString: #,0
+		displayFolder: Inventario
+
+	measure 'Valor Compra Parque' = CALCULATE ( SUM ( Activos[CosteCompra] ), Activos[Es Operativo] = TRUE () )
+		formatString: #,0 €
+		displayFolder: Inventario
+
+	measure 'Valor Contable Parque' = CALCULATE ( SUM ( Activos[Valor Contable] ), Activos[Es Operativo] = TRUE () )
+		formatString: #,0 €
+		displayFolder: Inventario
+
+	measure '% Depreciado' = 1 - DIVIDE ( [Valor Contable Parque], [Valor Compra Parque] )
+		formatString: 0%
+		displayFolder: Inventario
+
+	measure 'Activos en Uso' = CALCULATE ( [Activos Totales], Activos[Estado] IN { "Asignado", "En servicio" } )
+		formatString: #,0
+		displayFolder: Inventario
+
+	measure 'Activos en Stock' = CALCULATE ( [Activos Totales], Activos[Estado] = "En stock" )
+		formatString: #,0
+		displayFolder: Inventario
+
+	measure 'Activos en Reparación' = CALCULATE ( [Activos Totales], Activos[Estado] = "En reparación" )
+		formatString: #,0
+		displayFolder: Inventario
+
+	measure 'Activos Extraviados' = CALCULATE ( [Activos Totales], Activos[Estado] = "Extraviado" )
+		formatString: #,0
+		displayFolder: Inventario
+
+	measure 'Tasa de Uso' =
+			DIVIDE (
+				CALCULATE ( [Activos Totales], Activos[Estado] = "Asignado" ),
+				CALCULATE ( [Activos Totales], Activos[Estado] IN { "Asignado", "En stock" } )
+			)
+		formatString: 0.0%
+		displayFolder: Inventario
+
+	measure '% Fuera de Garantía' =
+			VAR corte = [Fecha Corte]
+			RETURN
+				DIVIDE (
+					CALCULATE ( [Activos Operativos], Activos[FinGarantia] < corte ),
+					[Activos Operativos]
+				)
+		formatString: 0.0%
+		displayFolder: Ciclo de vida
+
+	measure 'Activos a Renovar' = CALCULATE ( [Activos Totales], Activos[Requiere Renovación] = TRUE () )
+		formatString: #,0
+		displayFolder: Ciclo de vida
+
+	measure '% a Renovar' = DIVIDE ( [Activos a Renovar], [Activos Operativos] )
+		formatString: 0.0%
+		displayFolder: Ciclo de vida
+
+	measure 'Coste Reposición Estimado' = CALCULATE ( SUM ( Activos[CosteCompra] ), Activos[Requiere Renovación] = TRUE () )
+		formatString: #,0 €
+		displayFolder: Ciclo de vida
+
+	measure 'Equipos Windows 10' = CALCULATE ( [Activos Operativos], Activos[SistemaOperativo] = "Windows 10" )
+		formatString: #,0
+		displayFolder: Ciclo de vida
+
+	measure 'Activos de Empleados de Baja' = CALCULATE ( [Activos Operativos], Empleados[EstadoEmpleado] = "Baja" )
+		formatString: #,0
+		displayFolder: Ciclo de vida
+
+	measure 'Edad Media (años)' = CALCULATE ( AVERAGE ( Activos[Edad (años)] ), Activos[Es Operativo] = TRUE () )
+		formatString: 0.0
+		displayFolder: Ciclo de vida
+
+	measure 'Inversión en Compras' =
+			CALCULATE (
+				SUM ( Activos[CosteCompra] ),
+				USERELATIONSHIP ( Calendario[Date], Activos[FechaCompra] )
+			)
+		formatString: #,0 €
+		displayFolder: Compras
+
+	measure 'Inversión YTD' = CALCULATE ( [Inversión en Compras], DATESYTD ( Calendario[Date] ) )
+		formatString: #,0 €
+		displayFolder: Compras
+
+	measure 'Total Incidencias' = COUNTROWS ( Incidencias )
+		formatString: #,0
+		displayFolder: Soporte
+
+	measure 'Incidencias Abiertas' = CALCULATE ( [Total Incidencias], ISBLANK ( Incidencias[FechaCierre] ) )
+		formatString: #,0
+		displayFolder: Soporte
+
+	measure 'MTTR (h)' = AVERAGE ( Incidencias[HorasResolucion] )
+		formatString: 0.0
+		displayFolder: Soporte
+
+	measure '% Cumplimiento SLA' = AVERAGE ( Incidencias[Cumple SLA] )
+		formatString: 0.0%
+		displayFolder: Soporte
+
+	measure 'Coste Reparaciones' = SUM ( Incidencias[CosteReparacion] )
+		formatString: #,0 €
+		displayFolder: Soporte
+
+	measure 'Incidencias por 100 Activos' = DIVIDE ( [Total Incidencias], [Activos Totales] ) * 100
+		formatString: #,0
+		displayFolder: Soporte
+
+	measure 'Incidencias Año Anterior' = CALCULATE ( [Total Incidencias], SAMEPERIODLASTYEAR ( Calendario[Date] ) )
+		formatString: #,0
+		displayFolder: Soporte
+
+	measure '% Var Incidencias' = DIVIDE ( [Total Incidencias] - [Incidencias Año Anterior], [Incidencias Año Anterior] )
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Soporte
+
+	measure 'Título Soporte' =
+			"Soporte · " & FORMAT ( [Total Incidencias], "#,0" ) & " incidencias · SLA "
+				& FORMAT ( [% Cumplimiento SLA], "0%" ) & " · MTTR "
+				& FORMAT ( [MTTR (h)], "0" ) & " h"
+		displayFolder: Soporte
+
+	measure 'Licencias Compradas' = SUM ( Licencias[LicenciasCompradas] )
+		formatString: #,0
+		displayFolder: Licencias
+
+	measure 'Usuarios Activos 30d' = SUM ( Licencias[UsuariosActivos30d] )
+		formatString: #,0
+		displayFolder: Licencias
+
+	measure '% Uso Real Licencias' = DIVIDE ( [Usuarios Activos 30d], [Licencias Compradas] )
+		formatString: 0.0%
+		displayFolder: Licencias
+
+	measure 'Objetivo Uso Licencias' = 0.85
+		formatString: 0%
+		displayFolder: Licencias
+
+	measure 'Coste Anual Licencias' = SUMX ( Licencias, Licencias[LicenciasCompradas] * Licencias[CosteUnitarioAnual] )
+		formatString: #,0 €
+		displayFolder: Licencias
+
+	measure 'Ahorro Potencial Licencias' =
+			SUMX (
+				Licencias,
+				MAX ( 0, Licencias[LicenciasCompradas] - ROUNDUP ( Licencias[UsuariosActivos30d] * 1.1, 0 ) )
+					* Licencias[CosteUnitarioAnual]
+			)
+		formatString: #,0 €
+		displayFolder: Licencias
+
+	measure 'Renovaciones Próx. 90 días' =
+			VAR corte = [Fecha Corte]
+			RETURN
+				CALCULATE (
+					COUNTROWS ( Licencias ),
+					Licencias[FechaRenovacion] > corte,
+					Licencias[FechaRenovacion] <= corte + 90
+				) + 0
+		formatString: 0
+		displayFolder: Licencias
+
+	column Columna
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: Columna
+
+	partition _Medidas = m
+		mode: import
+		source =
+				let
+					Origen = #table(type table [Columna = text], {})
+				in
+					Origen

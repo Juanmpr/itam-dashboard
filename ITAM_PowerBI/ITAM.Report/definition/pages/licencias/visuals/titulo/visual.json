@@ -1,0 +1,50 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "titulo",
+    "position":  {
+                     "x":  165,
+                     "y":  8,
+                     "z":  1710,
+                     "height":  60,
+                     "width":  600,
+                     "tabOrder":  1710
+                 },
+    "visual":  {
+                   "visualType":  "textbox",
+                   "objects":  {
+                                   "general":  [
+                                                   {
+                                                       "properties":  {
+                                                                          "paragraphs":  [
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "18pt",
+                                                                                                                                        "fontWeight":  "bold",
+                                                                                                                                        "color":  "#0F172A"
+                                                                                                                                    },
+                                                                                                                      "value":  "Licencias de software"
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             },
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "10pt",
+                                                                                                                                        "fontWeight":  "normal",
+                                                                                                                                        "color":  "#64748B"
+                                                                                                                                    },
+                                                                                                                      "value":  "Cuánto pagamos por licencias que nadie usa"
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             }
+                                                                                         ]
+                                                                      }
+                                                   }
+                                               ]
+                               },
+                   "drillFilterOtherVisuals":  true
+               }
+}

@@ -1,0 +1,78 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "gauge_uso",
+    "position":  {
+                     "x":  875,
+                     "y":  180,
+                     "z":  1800,
+                     "height":  250,
+                     "width":  390,
+                     "tabOrder":  1800
+                 },
+    "visual":  {
+                   "visualType":  "gauge",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Y":  {
+                                                              "projections":  [
+                                                                                  {
+                                                                                      "field":  {
+                                                                                                    "Measure":  {
+                                                                                                                    "Expression":  {
+                                                                                                                                       "SourceRef":  {
+                                                                                                                                                         "Entity":  "_Medidas"
+                                                                                                                                                     }
+                                                                                                                                   },
+                                                                                                                    "Property":  "% Uso Real Licencias"
+                                                                                                                }
+                                                                                                },
+                                                                                      "queryRef":  "_Medidas.% Uso Real Licencias",
+                                                                                      "nativeQueryRef":  "% Uso Real Licencias"
+                                                                                  }
+                                                                              ]
+                                                          },
+                                                    "TargetValue":  {
+                                                                        "projections":  [
+                                                                                            {
+                                                                                                "field":  {
+                                                                                                              "Measure":  {
+                                                                                                                              "Expression":  {
+                                                                                                                                                 "SourceRef":  {
+                                                                                                                                                                   "Entity":  "_Medidas"
+                                                                                                                                                               }
+                                                                                                                                             },
+                                                                                                                              "Property":  "Objetivo Uso Licencias"
+                                                                                                                          }
+                                                                                                          },
+                                                                                                "queryRef":  "_Medidas.Objetivo Uso Licencias",
+                                                                                                "nativeQueryRef":  "Objetivo Uso Licencias"
+                                                                                            }
+                                                                                        ]
+                                                                    }
+                                                }
+                             },
+                   "visualContainerObjects":  {
+                                                  "title":  [
+                                                                {
+                                                                    "properties":  {
+                                                                                       "show":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "true"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                },
+                                                                                       "text":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "\u0027Uso real frente al objetivo del 85 %\u0027"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                }
+                                                                                   }
+                                                                }
+                                                            ]
+                                              },
+                   "drillFilterOtherVisuals":  true
+               }
+}

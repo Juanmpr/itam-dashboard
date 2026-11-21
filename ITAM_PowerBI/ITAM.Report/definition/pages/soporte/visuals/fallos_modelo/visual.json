@@ -1,0 +1,152 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "fallos_modelo",
+    "position":  {
+                     "x":  720,
+                     "y":  180,
+                     "z":  1610,
+                     "height":  265,
+                     "width":  545,
+                     "tabOrder":  1610
+                 },
+    "visual":  {
+                   "visualType":  "clusteredBarChart",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Category":  {
+                                                                     "projections":  [
+                                                                                         {
+                                                                                             "field":  {
+                                                                                                           "Column":  {
+                                                                                                                          "Expression":  {
+                                                                                                                                             "SourceRef":  {
+                                                                                                                                                               "Entity":  "Activos"
+                                                                                                                                                           }
+                                                                                                                                         },
+                                                                                                                          "Property":  "Modelo"
+                                                                                                                      }
+                                                                                                       },
+                                                                                             "queryRef":  "Activos.Modelo",
+                                                                                             "nativeQueryRef":  "Modelo"
+                                                                                         }
+                                                                                     ]
+                                                                 },
+                                                    "Y":  {
+                                                              "projections":  [
+                                                                                  {
+                                                                                      "field":  {
+                                                                                                    "Measure":  {
+                                                                                                                    "Expression":  {
+                                                                                                                                       "SourceRef":  {
+                                                                                                                                                         "Entity":  "_Medidas"
+                                                                                                                                                     }
+                                                                                                                                   },
+                                                                                                                    "Property":  "Incidencias por 100 Activos"
+                                                                                                                }
+                                                                                                },
+                                                                                      "queryRef":  "_Medidas.Incidencias por 100 Activos",
+                                                                                      "nativeQueryRef":  "Incidencias por 100 Activos"
+                                                                                  }
+                                                                              ]
+                                                          }
+                                                },
+                                 "sortDefinition":  {
+                                                        "sort":  [
+                                                                     {
+                                                                         "field":  {
+                                                                                       "Measure":  {
+                                                                                                       "Expression":  {
+                                                                                                                          "SourceRef":  {
+                                                                                                                                            "Entity":  "_Medidas"
+                                                                                                                                        }
+                                                                                                                      },
+                                                                                                       "Property":  "Incidencias por 100 Activos"
+                                                                                                   }
+                                                                                   },
+                                                                         "direction":  "Descending"
+                                                                     }
+                                                                 ]
+                                                    }
+                             },
+                   "visualContainerObjects":  {
+                                                  "title":  [
+                                                                {
+                                                                    "properties":  {
+                                                                                       "show":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "true"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                },
+                                                                                       "text":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "\u0027Los portátiles Valtek Básica fallan casi 3 veces más\u0027"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                }
+                                                                                   }
+                                                                }
+                                                            ]
+                                              },
+                   "drillFilterOtherVisuals":  true
+               },
+    "filterConfig":  {
+                         "filters":  [
+                                         {
+                                             "name":  "f_TipoActivo",
+                                             "field":  {
+                                                           "Column":  {
+                                                                          "Expression":  {
+                                                                                             "SourceRef":  {
+                                                                                                               "Entity":  "Activos"
+                                                                                                           }
+                                                                                         },
+                                                                          "Property":  "TipoActivo"
+                                                                      }
+                                                       },
+                                             "type":  "Categorical",
+                                             "filter":  {
+                                                            "Version":  2,
+                                                            "From":  [
+                                                                         {
+                                                                             "Name":  "a",
+                                                                             "Entity":  "Activos",
+                                                                             "Type":  0
+                                                                         }
+                                                                     ],
+                                                            "Where":  [
+                                                                          {
+                                                                              "Condition":  {
+                                                                                                "In":  {
+                                                                                                           "Expressions":  [
+                                                                                                                               {
+                                                                                                                                   "Column":  {
+                                                                                                                                                  "Expression":  {
+                                                                                                                                                                     "SourceRef":  {
+                                                                                                                                                                                       "Source":  "a"
+                                                                                                                                                                                   }
+                                                                                                                                                                 },
+                                                                                                                                                  "Property":  "TipoActivo"
+                                                                                                                                              }
+                                                                                                                               }
+                                                                                                                           ],
+                                                                                                           "Values":  [
+                                                                                                                          [
+                                                                                                                              {
+                                                                                                                                  "Literal":  {
+                                                                                                                                                  "Value":  "\u0027Portátil\u0027"
+                                                                                                                                              }
+                                                                                                                              }
+                                                                                                                          ]
+                                                                                                                      ]
+                                                                                                       }
+                                                                                            }
+                                                                          }
+                                                                      ]
+                                                        }
+                                         }
+                                     ]
+                     }
+}

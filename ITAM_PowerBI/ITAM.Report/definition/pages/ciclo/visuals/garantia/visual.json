@@ -1,0 +1,78 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "garantia",
+    "position":  {
+                     "x":  165,
+                     "y":  455,
+                     "z":  1410,
+                     "height":  255,
+                     "width":  300,
+                     "tabOrder":  1410
+                 },
+    "visual":  {
+                   "visualType":  "donutChart",
+                   "query":  {
+                                 "queryState":  {
+                                                    "Category":  {
+                                                                     "projections":  [
+                                                                                         {
+                                                                                             "field":  {
+                                                                                                           "Column":  {
+                                                                                                                          "Expression":  {
+                                                                                                                                             "SourceRef":  {
+                                                                                                                                                               "Entity":  "Activos"
+                                                                                                                                                           }
+                                                                                                                                         },
+                                                                                                                          "Property":  "Situación Garantía"
+                                                                                                                      }
+                                                                                                       },
+                                                                                             "queryRef":  "Activos.Situación Garantía",
+                                                                                             "nativeQueryRef":  "Situación Garantía"
+                                                                                         }
+                                                                                     ]
+                                                                 },
+                                                    "Y":  {
+                                                              "projections":  [
+                                                                                  {
+                                                                                      "field":  {
+                                                                                                    "Measure":  {
+                                                                                                                    "Expression":  {
+                                                                                                                                       "SourceRef":  {
+                                                                                                                                                         "Entity":  "_Medidas"
+                                                                                                                                                     }
+                                                                                                                                   },
+                                                                                                                    "Property":  "Activos Operativos"
+                                                                                                                }
+                                                                                                },
+                                                                                      "queryRef":  "_Medidas.Activos Operativos",
+                                                                                      "nativeQueryRef":  "Activos Operativos"
+                                                                                  }
+                                                                              ]
+                                                          }
+                                                }
+                             },
+                   "visualContainerObjects":  {
+                                                  "title":  [
+                                                                {
+                                                                    "properties":  {
+                                                                                       "show":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "true"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                },
+                                                                                       "text":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "\u00277 de cada 10 equipos sin garantía\u0027"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                }
+                                                                                   }
+                                                                }
+                                                            ]
+                                              },
+                   "drillFilterOtherVisuals":  true
+               }
+}

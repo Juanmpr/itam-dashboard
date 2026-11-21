@@ -1,0 +1,218 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "name":  "texto",
+    "position":  {
+                     "x":  165,
+                     "y":  90,
+                     "z":  1900,
+                     "height":  610,
+                     "width":  1100,
+                     "tabOrder":  1900
+                 },
+    "visual":  {
+                   "visualType":  "textbox",
+                   "objects":  {
+                                   "general":  [
+                                                   {
+                                                       "properties":  {
+                                                                          "paragraphs":  [
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "13pt",
+                                                                                                                                        "fontWeight":  "bold",
+                                                                                                                                        "color":  "#0F172A"
+                                                                                                                                    },
+                                                                                                                      "value":  "Objetivo"
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             },
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "11pt",
+                                                                                                                                        "fontWeight":  "normal",
+                                                                                                                                        "color":  "#334155"
+                                                                                                                                    },
+                                                                                                                      "value":  "Ayudar al responsable de IT a preparar el presupuesto 2027: qué equipos renovar, dónde falla el soporte y cuánto se puede ahorrar en licencias."
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             },
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "8pt",
+                                                                                                                                        "fontWeight":  "normal",
+                                                                                                                                        "color":  "#334155"
+                                                                                                                                    },
+                                                                                                                      "value":  " "
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             },
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "13pt",
+                                                                                                                                        "fontWeight":  "bold",
+                                                                                                                                        "color":  "#0F172A"
+                                                                                                                                    },
+                                                                                                                      "value":  "Datos"
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             },
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "11pt",
+                                                                                                                                        "fontWeight":  "normal",
+                                                                                                                                        "color":  "#334155"
+                                                                                                                                    },
+                                                                                                                      "value":  "2.600 activos, 5.687 incidencias, 18 licencias y 650 empleados en 5 sedes. Fecha de corte: 31/10/2026."
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             },
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "8pt",
+                                                                                                                                        "fontWeight":  "normal",
+                                                                                                                                        "color":  "#334155"
+                                                                                                                                    },
+                                                                                                                      "value":  " "
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             },
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "13pt",
+                                                                                                                                        "fontWeight":  "bold",
+                                                                                                                                        "color":  "#0F172A"
+                                                                                                                                    },
+                                                                                                                      "value":  "Definiciones"
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             },
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "11pt",
+                                                                                                                                        "fontWeight":  "normal",
+                                                                                                                                        "color":  "#334155"
+                                                                                                                                    },
+                                                                                                                      "value":  "Activo operativo: no está retirado ni extraviado."
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             },
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "11pt",
+                                                                                                                                        "fontWeight":  "normal",
+                                                                                                                                        "color":  "#334155"
+                                                                                                                                    },
+                                                                                                                      "value":  "Valor contable: coste de compra con depreciación lineal según la vida útil del tipo de activo."
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             },
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "11pt",
+                                                                                                                                        "fontWeight":  "normal",
+                                                                                                                                        "color":  "#334155"
+                                                                                                                                    },
+                                                                                                                      "value":  "A renovar: activo operativo que ya ha superado su vida útil."
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             },
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "11pt",
+                                                                                                                                        "fontWeight":  "normal",
+                                                                                                                                        "color":  "#334155"
+                                                                                                                                    },
+                                                                                                                      "value":  "MTTR: tiempo medio de resolución en horas (solo incidencias cerradas)."
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             },
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "11pt",
+                                                                                                                                        "fontWeight":  "normal",
+                                                                                                                                        "color":  "#334155"
+                                                                                                                                    },
+                                                                                                                      "value":  "Cumplimiento SLA: incidencias resueltas dentro de las horas objetivo de su prioridad."
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             },
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "11pt",
+                                                                                                                                        "fontWeight":  "normal",
+                                                                                                                                        "color":  "#334155"
+                                                                                                                                    },
+                                                                                                                      "value":  "Ahorro potencial: licencias compradas por encima de los usuarios activos de los últimos 30 días + 10 % de margen."
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             },
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "8pt",
+                                                                                                                                        "fontWeight":  "normal",
+                                                                                                                                        "color":  "#334155"
+                                                                                                                                    },
+                                                                                                                      "value":  " "
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             },
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "13pt",
+                                                                                                                                        "fontWeight":  "bold",
+                                                                                                                                        "color":  "#0F172A"
+                                                                                                                                    },
+                                                                                                                      "value":  "Nota técnica"
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             },
+                                                                                             {
+                                                                                                 "textRuns":  [
+                                                                                                                  {
+                                                                                                                      "textStyle":  {
+                                                                                                                                        "fontSize":  "11pt",
+                                                                                                                                        "fontWeight":  "normal",
+                                                                                                                                        "color":  "#334155"
+                                                                                                                                    },
+                                                                                                                      "value":  "La relación de la fecha de compra con el calendario está inactiva y se activa con USERELATIONSHIP en las medidas de inversión, para evitar ambigüedad en el modelo."
+                                                                                                                  }
+                                                                                                              ]
+                                                                                             }
+                                                                                         ]
+                                                                      }
+                                                   }
+                                               ]
+                               },
+                   "drillFilterOtherVisuals":  true
+               }
+}

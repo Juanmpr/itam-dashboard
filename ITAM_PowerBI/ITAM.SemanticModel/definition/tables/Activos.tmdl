@@ -1,0 +1,143 @@
+table Activos
+
+	column ActivoID
+		dataType: string
+		summarizeBy: none
+		sourceColumn: ActivoID
+
+	column TipoActivo
+		dataType: string
+		summarizeBy: none
+		sourceColumn: TipoActivo
+
+	column Fabricante
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Fabricante
+
+	column Modelo
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Modelo
+
+	column Gama
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Gama
+
+	column NumSerie
+		dataType: string
+		summarizeBy: none
+		sourceColumn: NumSerie
+
+	column FechaCompra
+		dataType: dateTime
+		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: FechaCompra
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CosteCompra
+		dataType: int64
+		formatString: #,0 €
+		summarizeBy: sum
+		sourceColumn: CosteCompra
+
+	column VidaUtilAnios
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: VidaUtilAnios
+
+	column FinGarantia
+		dataType: dateTime
+		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: FinGarantia
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Estado
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Estado
+
+	column EmpleadoID
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: EmpleadoID
+
+	column DeptoID
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: DeptoID
+
+	column UbicacionID
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: UbicacionID
+
+	column ProveedorID
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: ProveedorID
+
+	column SistemaOperativo
+		dataType: string
+		summarizeBy: none
+		sourceColumn: SistemaOperativo
+
+	column 'Edad (años)' = DATEDIFF ( Activos[FechaCompra], DATE ( 2026, 10, 31 ), DAY ) / 365.25
+		formatString: 0.0
+		summarizeBy: none
+
+	column 'Fin Vida Útil' = EDATE ( Activos[FechaCompra], 12 * Activos[VidaUtilAnios] )
+		formatString: Short Date
+		summarizeBy: none
+
+	column 'Es Operativo' = NOT ( Activos[Estado] IN { "Retirado", "Extraviado" } )
+		summarizeBy: none
+
+	column 'Requiere Renovación' = Activos[Es Operativo] && Activos[Fin Vida Útil] <= DATE ( 2026, 10, 31 )
+		summarizeBy: none
+
+	column 'Situación Garantía' = IF ( Activos[FinGarantia] >= DATE ( 2026, 10, 31 ), "En garantía", "Fuera de garantía" )
+		summarizeBy: none
+
+	column 'Valor Contable' = Activos[CosteCompra] * MAX ( 0, 1 - Activos[Edad (años)] / Activos[VidaUtilAnios] )
+		formatString: #,0 €
+		summarizeBy: sum
+
+	column 'Rango Edad' =
+			SWITCH (
+				TRUE (),
+				Activos[Edad (años)] < 1, "0-1 años",
+				Activos[Edad (años)] < 3, "1-3 años",
+				Activos[Edad (años)] < 5, "3-5 años",
+				"5+ años"
+			)
+		summarizeBy: none
+
+	partition Activos = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "Activos.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Nulos = Table.ReplaceValue(Encabezados, "", null, Replacer.ReplaceValue, Table.ColumnNames(Encabezados)),
+					Tildes = Table.TransformColumns(Nulos, {{"TipoActivo", fnTildes, type text}, {"Modelo", fnTildes, type text}, {"Gama", fnTildes, type text}, {"Estado", fnTildes, type text}}),
+					Tipos = Table.TransformColumnTypes(Tildes, {
+						{"ActivoID", type text}, {"Fabricante", type text}, {"NumSerie", type text}, {"FechaCompra", type date},
+						{"CosteCompra", Int64.Type}, {"VidaUtilAnios", Int64.Type}, {"FinGarantia", type date}, {"EmpleadoID", type text},
+						{"DeptoID", Int64.Type}, {"UbicacionID", Int64.Type}, {"ProveedorID", Int64.Type}, {"SistemaOperativo", type text}
+					}, "en-US")
+				in
+					Tipos

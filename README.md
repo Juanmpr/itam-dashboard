@@ -3,7 +3,7 @@
 > Dashboard ejecutivo para que la dirección de IT de una empresa multinacional decida **qué equipos renovar, dónde falla el soporte y cuánto se puede ahorrar en licencias** de cara al presupuesto 2027.
 > El mismo caso resuelto en **Power BI** y en **Python (Streamlit)**.
 
-🔗 **[Ver la app en vivo](PEGA_AQUI_EL_ENLACE_DE_STREAMLIT)**
+🔗 **[Ver la app en vivo](https://itam-juanprieto.streamlit.app)**
 
 ![Resumen ejecutivo](img/streamlit_resumen.png)
 <!-- Guarda capturas en la carpeta img/ con estos nombres, o cambia las rutas. -->
